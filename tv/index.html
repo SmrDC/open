@@ -10,7 +10,10 @@
     <script type="text/javascript" src="tv.js"></script>
 </head>
 <body>
-<div id="tv"></div>
+<div id="menu" style="display: none; position:absolute; left:0; top:0;">
+    <img style="background-color: black;" src="menu.png" onclick="$('#menu-channel-list').toggle()">
+    <div id="menu-channel-list" style="display: none;"></div>
+</div>
 <div id="media-player" style="display: none;"></div>
 <div id="channel-list" style="display: none;"></div>
 <div id="fb-root" style="display: none;"></div>

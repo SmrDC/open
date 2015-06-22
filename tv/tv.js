@@ -1,5 +1,6 @@
 var smrTVServerUrl = "http://smridh.com/tv/v1";
 var activeChannel;
+
 if(window.location.hash) {
     activeChannel = window.location.hash.substr(2); // remove #/
 }
@@ -13,10 +14,11 @@ window.onhashchange = function() {
 };
 
 function startTV() {
+    loadChannelList();
     if(activeChannel) {
+        $("#menu").show();
         $("#media-player").show();
     } else {
-        loadChannelList();
         $("#channel-list").show();
         $(".fb-comments").show();
     }
@@ -33,9 +35,11 @@ function loadChannelList() {
             });
             channelListContent += "</ul>";
             $("#channel-list").html(channelListContent);
+            $("#menu-channel-list").html(channelListContent);
         })
         .fail(function (error) {
             $("#channel-list").text("Unable to list the channels");
+            $("#menu-channel-list").text("Unable to list the channels");
         });
 }
 
