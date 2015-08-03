@@ -80,7 +80,7 @@ function playNextTrack() {
     var trackFeed = smrTVServerUrl + "/channel/" + activeChannel + "/now-playing";
     $.getJSON(trackFeed)
         .success(function (track) {
-            player.loadVideoById(track.video.id, track.startSeconds);
+            player.loadVideoById(track.videoId, track.startSeconds);
             player.playVideo();
             gaPushTrackPageview();
         })
