@@ -6,9 +6,32 @@
     <script type="text/javascript" src="SmrGA.js"></script>
 </head>
 <body>
-<video preload="auto" data-setup="{}" webkit-playsinline="" autoplay="" loop=""
-       style="position: absolute; top: 0; left: 0; min-width: 100%; min-height: 100%;"
+<video preload="auto" data-setup="{}" webkit-playsinline="" autoplay="" loop="" style="visibility: hidden;"
        src="http://player.vimeo.com/external/77769163.hd.mp4?s=2cef687d5d1cb920aec8a23a53435b33">
 </video>
+<canvas style="position: absolute; top: 0; bottom: 0; right: 0; width: 100%; height: 100%;"></canvas>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var v = document.getElementsByTagName('video')[0];
+        var canvas = document.getElementsByTagName('canvas')[0];
+        var context = canvas.getContext('2d');
+
+        var cw = canvas.clientWidth;
+        var ch = canvas.clientHeight;
+        canvas.width = cw;
+        canvas.height = ch;
+
+        v.addEventListener('play', function(){
+            draw(this,context,cw,ch);
+        },false);
+
+    },false);
+
+    function draw(v,c,w,h) {
+        if(v.paused || v.ended)	return false;
+        c.drawImage(v,0,0,w,h);
+        setTimeout(draw,20,v,c,w,h);
+    }
+</script>
 </body>
 </html>
