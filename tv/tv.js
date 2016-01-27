@@ -55,9 +55,8 @@ var player;
 function onYouTubePlayerAPIReady() {
     player = new YT.Player("media-player", {
         playerVars: {
-            controls: 0, // don't show video controls
+            // Reference: https://developers.google.com/youtube/player_parameters
             playsinline: 1, // play inline on iOS
-            disablekb: 1, // disable keyboard
             iv_load_policy: 3, // annotations off
             rel: 0, // don't show related videos at end
             showinfo: 0 // don't show video title
