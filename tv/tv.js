@@ -19,8 +19,8 @@ function startTV() {
         $("#menu").show();
         $("#media-player").show();
     } else {
+        $("#pick-header").show();
         $("#channel-list").show();
-        $(".fb-comments").show();
     }
 }
 
