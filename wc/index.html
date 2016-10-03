@@ -3,19 +3,32 @@
 <head>
     <title>SmrWC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script type="text/javascript" src="SmrGA.js"></script>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <script type="text/javascript" src="../SmrGA.js"></script>
     <script type="text/javascript" src="wordcloud2.js"></script>
-    <script type="text/javascript" src="wordlist.js"></script>
 </head>
 <body>
     <canvas id="canvas" class="canvas" style="width:100%"></canvas>
     <script>
-    WordCloud(document.getElementById('canvas'), {
-        list: wordlist,
-        shape: "circle",
-        fontFamily: "Helvetica Neue,Helvetica,Arial,sans-serif",
-     });
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+                if (xmlhttp.status == 200) {
+                    var wordList = JSON.parse(xmlhttp.responseText);
+                    WordCloud(document.getElementById('canvas'), {
+                        list: wordList,
+                        shape: "circle",
+                        fontFamily: "Helvetica Neue,Helvetica,Arial,sans-serif"
+                    });
+                }
+                else {
+                    document.body.innerHTML = "Unable to get the word list";
+                }
+            }
+        };
+
+        xmlhttp.open("GET", "http://smridh.com/wc/saal", true);
+        xmlhttp.send();
     </script>
 </body>
 </html>
