@@ -27,7 +27,7 @@
             }
         };
 
-        xmlhttp.open("GET", "http://smridh.com/wc/saal", true);
+        xmlhttp.open("GET", "http://smridh.com/wc/" + window.location.hash.substr(2), true);
         xmlhttp.send();
     </script>
 </body>
