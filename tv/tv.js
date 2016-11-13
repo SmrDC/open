@@ -1,4 +1,4 @@
-var smrTVServerUrl = "http://smridh.com/tv/v1";
+var smrTVServerUrl = "http://api.smridh.com/tv/v1";
 var activeChannel;
 
 if(window.location.hash) {
