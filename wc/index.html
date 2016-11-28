@@ -8,8 +8,22 @@
     <script type="text/javascript" src="wordcloud2.js"></script>
 </head>
 <body>
-    <canvas id="canvas" class="canvas" style="width:100%"></canvas>
+    <canvas id="canvas"></canvas>
     <script>
+        window.onhashchange = function() {
+            window.location.reload(true);
+        };
+
+        document.getElementById("canvas").width = window.innerWidth;
+        document.getElementById("canvas").height = window.innerHeight;
+        document.getElementById("canvas").addEventListener("wordclouddrawn",
+                function(event) {
+                    if(!event.detail.drawn) {
+                        alert("Not drawn: " + event.detail.item[0]);
+                    }
+                }
+        );
+
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
@@ -17,8 +31,15 @@
                     var wordList = JSON.parse(xmlhttp.responseText);
                     WordCloud(document.getElementById('canvas'), {
                         list: wordList,
-                        shape: "circle",
-                        fontFamily: "Helvetica Neue,Helvetica,Arial,sans-serif"
+                        gridSize: Math.round(16 * document.getElementById('canvas').width / 1024),
+                        weightFactor: function (size) {
+                            return Math.pow(size, 2.3) * document.getElementById('canvas').width / 1024;
+                        },
+                        click: function(item) {
+                            if(item[2]) window.location.href = item[2];
+                            else if (item[3]) alert(item[3]);
+                            else window.location.href = "https://www.google.com/search?q=" + item[0];
+                        }
                     });
                 }
                 else {
