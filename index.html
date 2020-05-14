@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<body align=center>
-
-<form action="https://postsarv/aRes" method="post">
-  🔒 <input type="url" name="firstname" value="Mickey">
-  <br />
-  🔑 <input type="password" name="lastname" value="Mouse">
-  <br />
-  <input type="submit" value="Submit">
-</form>
-  
-</body>
+  <script>
+    function postSarv(aRes) {
+      if(!aRes)
+        aRes = document.getElementsByName("firstname")[0].value;
+      if(aRes != "Mickey")
+        location.replace("https://go.smridh.com/" + aRes);
+    }
+    if(location.hash)
+      postSarv(location.hash.substr(1));
+  </script>
+  <body align=center>
+    <form method="post">
+      🔒 <input type="url" name="firstname" value="Mickey">
+      <br />
+      🔑 <input type="password" name="lastname" value="Mouse">
+      <br />
+      <input type="button" onclick="postSarv()" value="Submit">
+    </form>
+  </body>
 </html>
