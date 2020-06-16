@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
   <script>
-    function postSarv(aRes) {
-      if(!aRes)
-        aRes = document.getElementsByName("firstname")[0].value;
-      if(aRes != "Mickey")
-        location.replace("https://go.smridh.com/" + aRes);
+    function Go(link) {
+      if(!link)
+        link = document.getElementsByName("link")[0].value;
+      switch(link) {
+        case "Mickey":
+          break;
+        case "Call":
+          location.replace("https://messenger.com/groupcall/LINK:fmp700AzFi_Eqz3w");
+          break;
+        default: 
+          location.replace("https://go.smridh.com/" + link);
+          break;
+      }
     }
+    if(location.search)
+      Go(location.search.substr(1));
     if(location.hash)
-      postSarv(location.hash.substr(1));
+      Go(location.hash.substr(1));
   </script>
-  <body align=center>
-    <form method="post">
-      🔒 <input type="url" name="firstname" value="Mickey">
-      <br />
-      🔑 <input type="password" name="lastname" value="Mouse">
-      <br />
-      <input type="button" onclick="postSarv()" value="Submit">
-    </form>
+  <body align=center style="background-color:black;">
+    🔒 <input type="url" name="link" value="Mickey" />
+    <br />
+    🔑 <input type="password" name="key" value="Mouse" />
+    <br />
+    <input type="button" onclick="Go()" value="Go" />
+    <input type="button" onclick="Go('Call')" value="Call" />
   </body>
 </html>
