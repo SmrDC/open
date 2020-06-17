@@ -4,10 +4,10 @@
     function Go(link) {
       if(!link)
         link = document.getElementsByName("link")[0].value;
-      switch(link) {
-        case "Mickey":
+      switch(link.toLowerCase()) {
+        case "mickey":
           break;
-        case "Call":
+        case "call":
           location.replace("https://messenger.com/groupcall/LINK:fmp700AzFi_Eqz3w");
           break;
         default: 
