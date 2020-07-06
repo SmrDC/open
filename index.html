@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>smridh:</title>
+    <meta name="viewport">
     <script>
       function linker(link) {
         const linkMap = {
@@ -25,12 +26,20 @@
       if(tag)
         Down(tag, url.searchParams.get("key"));
     </script>
+    <style>
+      body {
+        text-align: center;
+        background-image: url('rdb.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
   </head>
-  <body style="color: white; background-color: black;text-align: center;">
+  <body>
     <form>
-      #️⃣ <input type="text" name="tag" placeholder="smridh:" />
+      #️⃣ <input type="text" name="tag" placeholder="smridh:" required />
       <br />
-      🔒 <input type="password" placeholder="🔑" />
+      🔒 <input type="password" name="key" id="via" placeholder="🔑" />
       <br />
       <input type="submit" />
     </form>
