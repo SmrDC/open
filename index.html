@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <script>
-    function Go(link) {
-      if(!link)
-        link = document.getElementsByName("link")[0].value;
-      switch(link.toLowerCase()) {
-        case "mickey":
-          break;
-        case "call":
-          location.replace("https://meet.google.com/jbi-qjsd-hzi");
-          break;
-        default: 
-          location.replace("https://go.smridh.com/" + link);
-          break;
+  <head>
+    <title>smridh:</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <script>
+      function linker(link) {
+        const linkMap = {
+          smridh: "https://meet.google.com/jbi-qjsd-hzi",
+          "smridh:": "https://meet.google.com/jbi-qjsd-hzi",
+          lightningMcQueen: "https://youtu.be/UCoogBnurWk",
+        };
+        
+        return linkMap[link];
       }
-    }
-    if(location.search)
-      Go(location.search.substr(1));
-    if(location.hash)
-      Go(location.hash.substr(1));
-  </script>
-  <body align=center style="background-color:black;">
-    🔒 <input type="url" name="link" value="Mickey" />
-    <br />
-    🔑 <input type="password" name="key" value="Mouse" />
-    <br />
-    <input type="button" onclick="Go()" value="Go" />
-    <input type="button" onclick="Go('Call')" value="Call" />
+
+      function Down(link, key) {
+        const hyperlink = linker(link) ? linker(link) : "https://go.smridh.com/" + link;
+        console.log("Downlinking: " + hyperlink); 
+        return location.replace(hyperlink);
+      }
+      
+      const url = new URL(location);
+      const hash = url.hash;
+      const tag = hash ? hash.substr(1) : url.searchParams.get("tag");
+      if(tag)
+        Down(tag, url.searchParams.get("key"));
+    </script>
+  </head>
+  <body style="color: white; background-color: black;text-align: center;">
+    <form>
+      #️⃣ <input type="text" name="tag" placeholder="smridh:" />
+      <br />
+      🔒 <input type="password" name="key" id="via" placeholder="🔑" />
+      <br />
+      <input type="submit" />
+    </form>
   </body>
 </html>
