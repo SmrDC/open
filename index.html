@@ -2,38 +2,12 @@
 <html>
   <head>
     <title>smridh:</title>
-    <meta name="viewport">
-    <script>
-      function linker(link) {
-        const linkMap = {
-          smridh: "https://meet.google.com/jbi-qjsd-hzi",
-          "smridh:": "https://meet.google.com/jbi-qjsd-hzi",
-          lightningMcQueen: "https://youtu.be/UCoogBnurWk",
-        };
-        
-        return linkMap[link];
-      }
+    <meta name="viewport" />
 
-      function Down(link, key) {
-        const hyperlink = linker(link) ? linker(link) : "https://go.smridh.com/" + link;
-        console.log("Downlinking: " + hyperlink); 
-        return location.replace(hyperlink);
-      }
-      
-      const url = new URL(location);
-      const hash = url.hash;
-      const tag = hash ? hash.substr(1) : url.searchParams.get("tag");
-      if(tag)
-        Down(tag, url.searchParams.get("key"));
-    </script>
-    <style>
-      body {
-        text-align: center;
-        background-image: url('rdb.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    </style>
+    <script type="text/javascript" src="SmrGA.js"></script>
+    <link rel="stylesheet" type="text/css" href="screen.shit" media="screen" />
+    <link rel="stylesheet" type="text/css" href="print.shit" media="print" />
+    <script type="text/javascript" src="go/main.js"></script>
   </head>
   <body>
     <form>
