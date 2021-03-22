@@ -1,12 +1,14 @@
 // © smridh.com
 
-getUrl = function(key) {
-  const urlMap = {
-    smridh: "https://meet.google.com/jbi-qjsd-hzi",
-    "smridh:": "https://meet.google.com/jbi-qjsd-hzi",
-  };
+const glocalMap = {
+  smridh: "https://meet.google.com/jbi-qjsd-hzi",
+  "smridh:": "https://meet.google.com/jbi-qjsd-hzi",
+  assemble: "https://smridh.com/r/x4mars/assemble",
+  "assemble": "https://smridh.com/r/x4mars/assemble",
+};
 
-  return urlMap[key];
+getUrl = function(key) {
+  return glocalMap[key];
 };
 
 function go(id, passkey) {
