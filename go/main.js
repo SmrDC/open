@@ -5,6 +5,10 @@ const glocalMap = {
   "smridh:": "https://meet.google.com/jbi-qjsd-hzi",
   assemble: "https://smridh.com/r/x4mars/assemble",
   "assemble": "https://smridh.com/r/x4mars/assemble",
+  a: "https://smridh.com/a/p",
+  "a": "https://smridh.com/a/p",
+  a/p: "https://smridh.com/a/p",
+  "a/p": "https://smridh.com/a/p",,
 };
 
 getUrl = function(key) {
