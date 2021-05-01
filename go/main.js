@@ -9,8 +9,14 @@ const glocalMap = {
   "Amrit": "https://smridh.com/Amrit",
   assemble: "https://smridh.com/go/r/x4mars/assemble",
   "assemble": "https://smridh.com/go/r/x4mars/assemble",
-  smridh: "https://meet.google.com/jbi-qjsd-hzi",
-  "smridh:": "https://meet.google.com/jbi-qjsd-hzi",
+  link: "https://www.smridh.com/go/r/in/link",
+  "link": "https://www.smridh.com/go/r/in/link",
+  meet: "https://meet.google.com/jbi-qjsd-hzi",
+  "meet": "https://meet.google.com/jbi-qjsd-hzi",
+  smridh: "https://go.smridh.com",
+  "smridh": "https://go.smridh.com",
+  tv: "https://www.smridh.com/go/r/tv",
+  "tv": "https://www.smridh.com/go/r/tv",
 };
 
 getUrl = function(key) {
